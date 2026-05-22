@@ -199,20 +199,21 @@ const STACK_DATA = {
     }}
   ],
   'tools-ai': [
-    { name: 'Claude Code', tag: 'AI Coding CLI', level: 45, desc: 'Power-user setup — CLAUDE.md memory, custom agents, and reusable slash commands configured.', knows: [
-      'Code generation via terminal',
-      'Code review assistance',
-      'Documentation drafting',
-      'Terminal setup and invocation',
-      'Create CLAUDE.md files to give the agent persistent project memory',
-      'Configure custom subagents for specialized workflows',
-      'Set up reusable slash commands for repeated tasks',
-      'Haven\'t fully leveraged auto-shell/test/git execution yet'
+    { name: 'Claude Code', tag: 'AI Coding CLI', level: 75, desc: 'Power-user setup driving real production backend work — multi-agent workflow, reusable slash commands, context engineering, and tuned permissions.', knows: [
+      'Multi-agent workflow with role-specialised subagents (writer, reviewer, docs-sync) mirroring a small engineering team',
+      'Reusable slash-command library for feature kickoff, requirement breakdown, structured task plans, and pre-merge safety checks on code + DB changes',
+      'CLAUDE.md context engineering and guardrails — never invent facts, cite sources, ask before assuming, fail loudly when info is missing, treat questions as questions',
+      'Fine-grained permission settings — auto-accept safe read-only actions, confirm anything that changes code or systems',
+      'Model tiering strategy — heavier models for reasoning and architecture, lighter models for routine implementation',
+      'AI-assisted code review, refactoring, and schema/migration safety checks as a first pass before human review',
+      'Session and context lifecycle management — clear, resume, and structure long multi-step work without losing prior decisions',
+      'Translating business requirements into AI-driven engineering workflows, and outcomes back into plain language'
     ], refresher: {
       concepts: [
         'CLAUDE.md lives at project root and loads on every session — your persistent context',
-        'Subagents = specialized workers the main agent delegates to',
-        'Slash commands = reusable prompt templates stored in .claude/commands/'
+        'Subagents = role-specialised workers the main agent delegates to (each with its own narrow responsibility)',
+        'Slash commands = reusable prompt templates stored in .claude/commands/ — your team\'s repeatable AI workflows',
+        'Permission modes + allowlists give you "auto-accept where safe, confirm where it matters"'
       ],
       snippets: [
         'Common commands:\n/agents       # manage subagents\n/compact      # summarize history to save context\n/clear        # reset the session'

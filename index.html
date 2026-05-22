@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Christian Mendez — Backend Engineer</title>
 <link rel="stylesheet" href="css/styles.css">
+<script>
+  // Pre-paint theme: read localStorage before render to avoid theme-flash.
+  // Mirrors recall-engine's themeInitScript. The actual toggle wiring
+  // lives in js/app.js — this block just ensures the right theme is on
+  // <html> before first paint.
+  (function () {
+    try {
+      var stored = localStorage.getItem('cjm-theme');
+      var theme = stored;
+      if (theme !== 'light' && theme !== 'dark') {
+        var prefersLight = window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: light)').matches;
+        theme = prefersLight ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
 
@@ -365,10 +383,68 @@
     </div>
   </div>
 
+  <!-- ═══════════ AI WORKFLOW (FEATURED CAPABILITY) ═══════════ -->
+  <div id="view-ai-workflow" class="view">
+    <span class="role-tag">Featured Capability &middot; Agentic Software Engineering</span>
+    <h2>Claude</h2>
+    <p class="subtitle">How I work with Claude across <strong>Code</strong>, <strong>Cowork</strong>, and <strong>Chat</strong> &mdash; not as autocomplete, but as a small, role-specialised engineering team I configure, brief, and review. Claude Code drives real production backend work; Cowork and Chat fill the gaps around it.</p>
+
+    <h3 class="section-title-sm">Across the Claude Surface</h3>
+    <p class="prose">I pick the right Claude product for the job, not just one:</p>
+    <ul class="task-list">
+      <li><strong>Claude Code</strong> &mdash; primary driver for production engineering work: multi-agent workflows, reusable slash commands, and tuned permissions on real backend repos. Everything below describes how I operate it.</li>
+      <li><strong>Claude Cowork</strong> &mdash; desktop automation and rapid UI screen / mockup generation when I need a visual artifact fast.</li>
+      <li><strong>Claude Chat</strong> &mdash; quick reasoning, brainstorming, and lookups outside an active codebase.</li>
+    </ul>
+
+    <h3 class="section-title-sm">Multi-Agent Workflow &amp; Role Specialisation</h3>
+    <ul class="task-list">
+      <li>Advanced user of <strong>Claude Code</strong> (Anthropic's AI coding assistant) for AI-assisted software engineering, applied across real production backend projects.</li>
+      <li>Designed and maintain a <strong>multi-agent workflow</strong> where each specialised assistant owns a focused part of the development process &mdash; one writes new code, one reviews code quality and conventions, one keeps technical documentation in sync. This mirrors how a real engineering team is organised.</li>
+      <li>Strong understanding of <strong>role-based AI collaboration and reusable prompting systems</strong> &mdash; each assistant gets a narrow, well-defined responsibility, which makes the overall system more predictable, easier to debug, and easier to extend.</li>
+    </ul>
+
+    <h3 class="section-title-sm">Reusable Commands &amp; AI-Assisted Review</h3>
+    <ul class="task-list">
+      <li>Built a reusable library of <strong>custom AI commands</strong> that standardise common engineering workflows &mdash; starting a new feature, breaking down requirements, generating structured task plans, driving a task to completion, and running pre-merge safety checks on code and database changes. These commands make AI-assisted development repeatable across team members and projects.</li>
+      <li>Experienced in <strong>AI-assisted code review, refactoring, schema and migration safety checks, and architecture discussions</strong>. Uses automated diagnostic passes before human review &mdash; catches issues earlier and reduces review burden.</li>
+    </ul>
+
+    <h3 class="section-title-sm">Context Engineering &amp; Guardrails</h3>
+    <ul class="task-list">
+      <li>Skilled in <strong>AI rules configuration and context engineering</strong> &mdash; authoring the instruction files that tell the AI how to behave. Guardrails include: <em>never invent facts, always cite sources, ask before making assumptions, fail loudly when information is missing, and treat questions as questions rather than commands to edit code</em>.</li>
+      <li>Configured <strong>fine-grained permission settings</strong> so safe, read-only actions run automatically while anything that changes code or systems still requires explicit approval &mdash; a smooth "auto-accept where safe, confirm where it matters" workflow.</li>
+      <li>Comfortable managing <strong>AI session and context lifecycle</strong> &mdash; clearing, resuming, and structuring long multi-step work so complex tasks stay coherent across many iterations without losing earlier decisions.</li>
+    </ul>
+
+    <h3 class="section-title-sm">Model Strategy &amp; Business Bridging</h3>
+    <ul class="task-list">
+      <li>Strategic in choosing the <strong>right model for the task</strong> &mdash; more powerful models for deep reasoning, architecture, and complex problem-solving; lighter/faster models for routine implementation and edits. Balances quality, speed, and cost.</li>
+      <li>Comfortable bridging non-technical and technical concerns &mdash; able to <strong>translate business requirements into structured AI-driven engineering workflows</strong>, and explain technical outcomes back in plain language.</li>
+    </ul>
+
+    <h3 class="section-title-sm">Stack</h3>
+    <div class="stack-chips">
+      <span class="stack-chip">Claude Code</span><span class="stack-chip">Claude Cowork</span><span class="stack-chip">Claude Chat</span><span class="stack-chip">Subagents</span><span class="stack-chip">Slash Commands</span><span class="stack-chip">CLAUDE.md</span><span class="stack-chip">Hooks &amp; Permissions</span><span class="stack-chip">Model Tiering (Opus / Sonnet / Haiku)</span><span class="stack-chip">Anthropic API</span>
+    </div>
+  </div>
+
   <!-- ═══════════ SKILLS ═══════════ -->
   <div id="view-skills" class="view">
     <h2>Skills</h2>
     <p class="subtitle">A consolidated reference of what I work with day to day &mdash; grouped, not ranked.</p>
+
+    <section class="skill-feature" onclick="showView('ai-workflow')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showView('ai-workflow');}">
+      <div class="skill-feature-body">
+        <span class="skill-feature-eyebrow">Featured Capability</span>
+        <h3 class="skill-feature-title">Claude</h3>
+        <p class="skill-feature-desc">The full Claude surface &mdash; <strong>Code</strong>, <strong>Cowork</strong>, and <strong>Chat</strong> &mdash; used as a role-specialised AI team. Multi-agent workflows, reusable slash commands, context engineering, permission tuning, and model strategy applied on real production backend work.</p>
+      </div>
+      <span class="skill-feature-cta">
+        Explore
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </section>
 
     <div class="skills-grid">
       <section class="skill-block">
